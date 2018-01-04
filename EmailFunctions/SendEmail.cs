@@ -21,7 +21,7 @@ namespace EmailFunctions
             var message = JsonConvert.DeserializeObject<EmailMessage>(jsonContent);
 
             var apiKey = System.Environment.GetEnvironmentVariable("ApiKey", System.EnvironmentVariableTarget.Process);
-            var client = new SendGridClient(apiKey /*"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"*/);
+            var client = new SendGridClient(apiKey);
             var msg = BuildEmailMessage(message);
 
             var response = client.SendEmailAsync(msg).Result;
